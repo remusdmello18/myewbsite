@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html >
+<head>
+  <meta charset="UTF-8">
+  <title>Bar graph with transition effects</title>
+  
+  
+  
+      <link rel="stylesheet" href="css/style.css">
+
+  
+</head>
+
+<body>
+  <article class="source-selection">
+  <h2>Graph data control</h2>  
+  <button id="btnRefresh">refresh graph</button>
+  <label for="option-average" class="radio-option">
+    <input type="radio" name="score-select" id="option-average" value="average" checked/>  
+    Average
+  </label>
+  <label for="option-cat1" class="radio-option">
+    <input type="radio" name="score-select" id="option-cat1" value="cat1"/>  
+    Category 1
+  </label>
+  <label for="option-cat2" class="radio-option">
+    <input type="radio" name="score-select" id="option-cat2" value="cat2"/>  
+    Category 2
+  </label>
+  <label for="option-cat3" class="radio-option">
+    <input type="radio" name="score-select" id="option-cat3" value="cat3"/>  
+    Category 3
+  </label>  
+</article>
+
+<article class="graph" id="bar-graph">
+  
+</article>
+
+<article class="transition-selection">
+  <h2>Bar draw effect</h2>
+  <label for="transition-wave" class="radio-option">
+    <input type="radio" name="transition-select" id="transition-wave" value="wave"/>
+    Wave - a short delay is introduced between each subsequent bar in the graph
+  </label>
+  <label for="transition-height" class="radio-option">
+    <input type="radio" name="transition-select" id="transition-height" value="height"/>
+    Height - the bars will go up and down together matching the height of each other for as long as possible
+  </label>
+  <label for="transition-combined" class="radio-option">
+    <input type="radio" name="transition-select" id="transition-combined" value="combined" checked/>
+    Combined
+  </label>
+  <h3>Draw time</h3>
+  <p>The time it takes in seconds for a bar representing the scale to go from its initial height to its full height.</p>
+  <label for="input-duration">
+    <input id="input-duration" type="number" min="0.1" max="2" value="1" step="0.1"/>
+    second(s)
+  </label>
+  <h3>Easing effect</h3>
+  <p>Select the easing effect to apply to the height manipulation of the bars</p>
+  <select id="select-easing">
+    <option value="linear" checked>Linear</option>
+    <option value="ease-out">Ease-out</option>
+    <option value="ease-in">Ease-in</option>
+  </select>
+</article>
+  
+    <script  src="js/index.js"></script>
+
+</body>
+</html>

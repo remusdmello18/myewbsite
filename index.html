@@ -1,499 +1,292 @@
-<!DOCTYPE html>
+<!DOCTYPE HTML>
 <!--
-To change this license header, choose License Headers in Project Properties.
-To change this template file, choose Tools | Templates
-and open the template in the editor.
+	Overflow by HTML5 UP
+	html5up.net | @ajlkn
+	Free for personal and commercial use under the CCA 3.0 license (html5up.net/license)
 -->
 <html>
-    <head>
-        <title>Calculations</title>
-        <meta charset="UTF-8">
-        <meta name="viewport" content="width=device-width, initial-scale=1.0">
-        <style>
-table, td {
-    border: 1px solid black;
-}
-</style>
-<style>
-/* Full-width input fields */
-
-
-/* Set a style for all buttons */
-input[type=text]{
-    width: 60%;
-    padding: 12px 20px;
-    margin: 8px 0;
-    display: inline-block;
-    border: 1px solid #ccc;
-    box-sizing: border-box;
-}
-.close {
-    position: absolute;
-    right: 25px;
-    top: 0;
-    color: #000;
-    font-size: 60px;
-    font-weight: bold;
-}
-
-
-
-
-
-/* Extra styles for the cancel button */
-
-
-.container {
-    padding: 16px;
-}
-
-/*span.psw {
-    float: right;
-    padding-top: 16px;
-}*/
-
-/* The Modal (background) */
-.modal {
-    display: none; /* Hidden by default */
-    position: fixed; /* Stay in place */
-    z-index: 1; /* Sit on top */
-    left: 0;
-    top: 0;
-    width: 100%; /* Full width */
-    height: 100%; /* Full height */
-    overflow: auto; /* Enable scroll if needed */
-    background-color: rgb(0,0,0); /* Fallback color */
-    background-color: rgba(0,0,0,0.4); /* Black w/ opacity */
-    padding-top: 60px;
-    color: black;
-}
-
-/* Modal Content/Box */
-.modal-content {
-    background-color: #fefefe;
-    margin: 5% auto 15% auto; /* 5% from the top, 15% from the bottom and centered */
-    border: 1px solid #888;
-    width: 80%; /* Could be more or less, depending on screen size */
-}
-
-
-
-
-.animate {
-    -webkit-animation: animatezoom 0.6s;
-    animation: animatezoom 0.6s
-}
-
-@-webkit-keyframes animatezoom {
-    from {-webkit-transform: scale(0)} 
-    to {-webkit-transform: scale(1)}
-}
-    
-@keyframes animatezoom {
-    from {transform: scale(0)} 
-    to {transform: scale(1)}
-}
-
-/* Change styles for span and cancel button on extra small screens */
-
-.buttonload {
-    background-color: #ff0000; /*color background */
-    border: none; /* Remove borders */
-    color: white; /* White text */
-    padding: 24px 40px; /* Some padding */
-    font-size: 29px; /* Set a font-size */
-    float: left;
-    position: relative;
-    
-}
-
-/* Add a right margin to each icon */
-.fa {
-    margin-left: -12px;
-    margin-right: 8px;
-}
-</style>
-<style>
-
-.mySlides {display:none}
-
-
-.slideshow-container {
-  width: 100%;
-  position: fixed;
-  margin: auto;
-
-}
-
-
-
-
-.fade {
-  -webkit-animation-name: fade;
-  -webkit-animation-duration: 1.5s;
-  animation-name: fade;
-  animation-duration: 1.5s;
-}
-
-@-webkit-keyframes fade {
-  from {opacity: .4} 
-  to {opacity: 1}
-}
-
-@keyframes fade {
-  from {opacity: .4} 
-  to {opacity: 1}
-}
-
-/* On smaller screens, decrease text size */
-@media only screen and (max-width: 300px) {
-  .text {font-size: 11px}
-}
-</style>
-<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
-
-    </head>
-    <body bgcolor="black" >
-      <div class="slideshow-container">
-
-<div class="mySlides fade">
-  
-  <img src="1.jpg" style="width:100%">
-  
-</div>
-
-<div class="mySlides fade">
-  
-  <img src="2.jpg" style="width:100%">
-  
-</div>
-
-<div class="mySlides fade">
-  
-  <img src="3.jpg" style="width:100%">
-  
-</div>
-
-</div>
-      <!-- <button id="b1" onclick="bmi()">Calculate BMI</button> -->
-      <center>
-      <button class="buttonload" onclick="document.getElementById('id01').style.display='block'"  style="width:auto; margin-right: 20px; position:absolute; padding: 50px;font-size: 60px;left:0px; top:0px;"><a href="#" style="text-decoration:none;color: whitesmoke;"><i class="fa fa-spinner fa-spin"></i>Calculate BMI
-      </a></button>
-      <!-- <script type="text/javascript">
-        function bmi()
-        { document.write("<style>body{background-color:black}input{align:center;clear:both;}</style>");
-          document.write("<center><form name='bmiForm' bgcolor='black' style='color: whitesmoke;background-color:black;'>");
-          document.write("Your Weight(kg): <input type='text' style='padding-left:40px' name='weight' size='10'><br />");
-          document.write("Your Height(cm): <input type='text' name='height' size='10'><br />");
-          document.write("<input type='button' align='right' value='Calculate BMI' onClick='calculateBmi()'><br />");
-          document.write("Your BMI: <input type='text' name='bmi' size='10'><br />");
-          document.write("This Means: <input type='text' name='meaning' size='25'><br />");
-          document.write("<input type='reset' value='Reset' />");
-          document.write("</form></center>");
-        }
-      </script> -->
-
-      <div id="id01" class="modal" >
-        <center>
-      <form name="bmiForm" class="modal-content animate" style="background-image: url(source.gif); background-repeat: no-repeat;background-size: cover;">
-        <span onclick="document.getElementById('id01').style.display='none'" style="color: white" class="close" title="Close Modal">&times;</span>
-<h3 style="display: inline-block;font-size: 30px;color: whitesmoke">Your Weight(kg):</h3> <input type="text" name="weight" size="10" style="display: inline-block;"><br />
-<h3 style="display: inline-block;font-size: 30px;color: whitesmoke">Your Height(cm):</h3> <input type="text" name="height" size="10" style="display: inline-block;"><br />
-<input type="button" value="Calculate BMI" onClick="calculateBmi()"><br />
-<h3 style="display: inline-block;font-size: 30px;color: whitesmoke">Your BMI:</h3> <input type="text" name="bmi" size="10" style="display: inline-block;"><br />
-<h3 style="display: inline-block;font-size: 30px;color: whitesmoke">This Means: </h3><input type="text" name="meaning" size="25" style="display: inline-block;"><br />
-<input type="reset" value="Reset" />
-</form>
-</center>
-</div>
- 
-<script>
-    function calculateBmi()
-    {
-     var weight = document.bmiForm.weight.value;
-     var height = document.bmiForm.height.value;
-     if(weight > 0 && height > 0){	
-var finalBmi = weight/(height/100*height/100);
-document.bmiForm.bmi.value = finalBmi;
-if(finalBmi < 18.5){
-document.bmiForm.meaning.value = "That you are too thin.";
-}
-if(finalBmi > 18.5 && finalBmi < 25){
-document.bmiForm.meaning.value = "That you are healthy.";
-}
-if(finalBmi > 25){
-document.bmiForm.meaning.value = "That you have overweight.";
-}
-}
-else{
-alert("Please Fill in everything correctly");
-}
-    }
-    
-</script>
-      <!-- <button id="b1" onclick="pizza()">Calculate cost</button> -->
-      <button class="buttonload" onclick="document.getElementById('id02').style.display='block'"  style="width:auto; margin-right: 20px; position:absolute; padding: 50px;font-size: 60px;left:0px; bottom:0px;"><a href="#" style="text-decoration:none;color: whitesmoke;"><i class="fa fa-spinner fa-spin"></i>Calculate cost
-      </a></button>
-      <!-- <script type="text/javascript">
-        function pizza(){
-       document.write("<center><div style='width:250px'><h1>Pizza Order Form</h1>");
-         document.write("<fieldset name='s1'>");
-          document.write(" # of Small Pizzas <input type='text' name='small' /><br />");
-           document.write(" # of Medium Pizzas <input type='text' name='medium' /><br />");
-            document.write(" # of Large Pizzas <input type='text' name='large' /><br />");
-            document.write(" Tip:");
-            document.write(" <label><input type='radio' value='10' name='tip' /> 10%</label>");
-            document.write("<label><input type='radio' value='15' name='tip' checked='checked' /> 15%</label>");
-           document.write(" <label><input type='radio' value='20' name='tip' /> 20%</label> <br />");
-            document.write(" <button  onclick='cal()' name='submit'>Calculate Order</button>");
-            
-            document.write("</fieldset>");
-            document.write("<p>Cost of order: <span id='price'></span><p>");
-            document.write(" <div id='ds'></div></div></center>");
-             
-          }
-      </script> -->
-      <div  id="id02" class="modal">
-      <form name="bmiForm" class="modal-content animate" style="background-image: url(source.gif); background-repeat: no-repeat;background-size: cover;">
-        <span onclick="document.getElementById('id02').style.display='none'" style="color: white" class="close" title="Close Modal">&times;</span>
-
- <h1>Pizza Order Form</h1>
-<fieldset name="s1">
- <p style="font-size: 30px;color: whitesmoke;display: inline-block;"># of Small Pizzas</p> <input type="text" name="small" id="smal" style="display: inline-block;" /><br />
- <p style="font-size: 30px;color: whitesmoke;display: inline-block;"># of Medium Pizzas</p> <input type="text" name="medium" id="med" style="display: inline-block;" /><br />
- <p style="font-size: 30px;color: whitesmoke;display: inline-block;"># of Large Pizzas</p> <input type="text" name="large" id="lar" style="display: inline-block;" /><br />
- Tip:
- <label><input type="radio" value="10" name="tip" id="r1" /> <p style="font-size: 30px;color: whitesmoke;display: inline-block;">10%</p></label>
- <label><input type="radio" value="15" name="tip" id="r2" checked="checked" /> <p style="font-size: 30px;color: whitesmoke;display: inline-block;">15%</p>
- </label>
- <label><input type="radio" value="20" name="tip" id="r3" /> <p style="font-size: 30px;color: whitesmoke;display: inline-block;">20%</p></label> <br />
- <input type="button" value="Calculate Order" onclick="callll()"><br />
-
- 
- 
-</fieldset>
-
-<p style="font-size: 30px;color: whitesmoke">
- Cost of order: <span id="price" style="font-size: 40px;color: whitesmoke"></span>
-<p>
- </form>
-</div>
-
-    <script>
-   function callll(){
-
-   var a=document.getElementById("smal").value;
-   var b=document.getElementById("med").value;
-   var c=document.getElementById("lar").value;
-   var d=a+b+c;
-   if (document.getElementById('r1').checked) {
-  var e = d /100;
-  var h = e * 10;
-}
-else if (document.getElementById('r2').checked) {
-  var e = d /100;
-  var h = e * 15;
-}
-else if (document.getElementById('r3').checked) {
-  var e = d /100;
-  var h = e * 20;
-}
-   // =d*9/100;
-   // var f=d+e;
-   // var g=f*10/100;
-   // var h=f+g;
-   document.getElementById("price").innerHTML=h;
-   
-   }
-    </script>
-    <!-- <button id="b1" onclick="length()">Calculate length</button> -->
-    <button class="buttonload" onclick="document.getElementById('id03').style.display='block'"  style="width:auto; margin-right: 20px; position:absolute; padding: 50px;font-size: 65px; top:300px;right: 450px"><a href="#" style="text-decoration:none;color: whitesmoke;"><i class="fa fa-spinner fa-spin"></i>Calculate length
-      </a></button>
-    <!-- <script type="text/javascript">
-      function length(){
-        document.write("    <h2>Length Converter</h2>");
-             document.write("<p>Type a value in the Meters field to convert the value to Kilometers:</p>");
-             document.write("<p><label>Meters</label>");
-             document.write("<input id='inputMeters' type='number' placeholder='Meters' oninput='LengthConverter(this.value)' onchange='LengthConverter(this.value)'></p>");
-             document.write("<p>Kilometers: <span id='outputKilometers'></span></p>");
-             
-      }
-    </script> -->
-    <div id="id03" class="modal">
-      <form name="bmiForm" class="modal-content animate" style="background-image: url(source.gif); background-repeat: no-repeat;background-size: cover;">
-        <span onclick="document.getElementById('id03').style.display='none'" style="color: white" class="close" title="Close Modal">&times;</span>
-
-     <h2 style="color: whitesmoke">Length Converter</h2>
-<p style="font-size: 20px;color: whitesmoke">Type a value in the Meters field to convert the value to Kilometers:</p>
-
-<p>
-  <label style="font-size: 20px;color: whitesmoke">Meters</label>
-  <input id="inputMeters" type="number" placeholder="Meters" min="1" oninput="LengthConverter(this.value)" onchange="LengthConverter(this.value)">
-</p>
-<p style="font-size: 20px;color: crimson">Kilometers: <span id="outputKilometers" style="font-size: 40px;color: whitesmoke"></span></p>
-</form>
-
-   </div>
-
-<script>
-function LengthConverter(valNum) {
-  document.getElementById("outputKilometers").innerHTML=valNum/1000;
-}
-</script>
-
-
-
-<!--  <button id="b1" onclick="row1()">Create row</button>
- --> <button class="buttonload" onclick="document.getElementById('id04').style.display='block'" style="width:auto; margin-right: 20px; position:absolute; padding: 50px;font-size: 65px;right:0px; top:0px;"><a href="#" style="text-decoration:none;color: whitesmoke;"><i class="fa fa-spinner fa-spin"></i>Create Rows
-      </a></button>
-
-
-
-<!-- <script type="text/javascript">
-  function row1(){
-  document.write("<center><p>Click the buttons to create and delete row(s) for the table.</p>");
-  document.write("<table id='myTable' border=1></table><br>");
-  document.write("<button onclick='myCreateFunction()'>Create row</button>");
-  document.write("<button onclick='myDeleteFunction()'>Delete row</button></center>");
-}
- 
-</script> -->
- <div id="id04" class="modal">
-<form name="bmiForm" class="modal-content animate" style="background-image: url(source.gif); background-repeat: no-repeat;background-size: cover;">
-        <span onclick="document.getElementById('id04').style.display='none'" style="color: white" class="close" title="Close Modal">&times;</span>
-
-<center> <p style="font-size: 20px;color: whitesmoke">Click the buttons to create and delete row(s) for the table.</p>
-  <table id='myTable' border=1></table><br>
-  <button onclick='myCreateFunction()' style="background-color: #333; color:whitesmoke;padding: 24px 40px;font-size: 29px;margin-bottom: 40px;margin-right: 30px">Create row</button>
-  <button onclick='myDeleteFunction()' style="background-color: whitesmoke; color:#333;padding: 24px 40px;font-size: 29px;margin-bottom: 40px">Delete row</button></center>
-</form>
-</div>
-
-<script>
-function myCreateFunction() {
-    var table = document.getElementById("myTable");
-    var row = table.insertRow(0);
-    var cell1 = row.insertCell(0);
-    var cell2 = row.insertCell(1);
-    var cell3 = row.insertCell(2);
-    cell1.innerHTML = Math.round(Math.random()*100);
-    cell2.innerHTML =Math.round(Math.random()*100);
-    cell3.innerHTML =Math.round(Math.random()*100);
-}
-
-function myDeleteFunction() {
-    document.getElementById("myTable").deleteRow(0);
-}
-</script>
-
-
-
-<!-- <button id="b1" onclick="wight1()">Convert weight</button>
- --><button class="buttonload" onclick="document.getElementById('id05').style.display='block'" style="width:auto; margin-right: 20px; position:absolute; padding: 50px;font-size: 60px;right:0px; bottom:0px;"><a href="#" style="text-decoration:none;color: whitesmoke;"><i class="fa fa-spinner fa-spin"></i>Convert weight
-      </a></button>
-
-<!-- <script type="text/javascript">
-  function wight1(){
-   document.write("<h2>Weight Converter</h2>");
-  
-  document.write("<p>Type a value in the Pounds field to convert the value to Kilograms:</p>");
-  document.write("<p><label>Pounds</label><input id='inputPounds' type='number' placeholder='Pounds' oninput='weightConverter(this.value)' onchange='weightConverter(this.value)'></p>");
-  document.write("<p>Kilograms: <span id='outputKilograms'></span></p>");
-  // document.write("");
-  // document.write("");
-  // document.write("");
-  // document.write("");
-  // document.write("");
-  // document.write("");
-}
-</script> -->
-
-<div id="id05" class="modal">
-<form name="bmiForm" class="modal-content animate" style="background-image: url(source.gif); background-repeat: no-repeat;background-size: cover;">
-        <span onclick="document.getElementById('id05').style.display='none'" style="color: white" class="close" title="Close Modal">&times;</span>
-<h2 style="color: whitesmoke">Weight Converter</h2>
-<p style="font-size: 20px;color: whitesmoke">Type a value in the Pounds field to convert the value to Kilograms:</p>
-
-<p>
-  <label style="font-size: 20px;color: whitesmoke">Pounds</label>
-  <input id="inputPounds" type="number" placeholder="Pounds" oninput="weightConverter(this.value)" onchange="weightConverter(this.value)">
-</p>
-<p style="font-size: 20px;color: crimson">Kilograms: <span id="outputKilograms" style="font-size: 40px;color: whitesmoke"></span></p>
-
-</form></div>
-
-
-
-
-
-<script>
-function weightConverter(valNum) {
-  document.getElementById("outputKilograms").innerHTML=valNum/2.2046;
-}
-</script>
-    
-    <script>
-// Get the modal
-var modal = document.getElementById('id01');
-
-// When the user clicks anywhere outside of the modal, close it
-window.onclick = function(event) {
-    if (event.target == modal) {
-        modal.style.display = "none";
-    }
-}
-var modal1 = document.getElementById('id02');
-
-// When the user clicks anywhere outside of the modal, close it
-window.onclick = function(event) {
-    if (event.target == modal1) {
-        modal1.style.display = "none";
-    }
-}
-var modal2 = document.getElementById('id03');
-
-// When the user clicks anywhere outside of the modal, close it
-window.onclick = function(event) {
-    if (event.target == modal2) {
-        modal2.style.display = "none";
-    }
-}
-var modal3 = document.getElementById('id04');
-
-// When the user clicks anywhere outside of the modal, close it
-window.onclick = function(event) {
-    if (event.target == modal3) {
-        modal3.style.display = "none";
-    }
-}
-var modal4 = document.getElementById('id05');
-
-// When the user clicks anywhere outside of the modal, close it
-window.onclick = function(event) {
-    if (event.target == modal4) {
-        modal4.style.display = "none";
-    }
-}
-</script>
-       </center>
-       <script>
-var slideIndex = 0;
-showSlides();
-
-function showSlides() {
-    var i;
-    var slides = document.getElementsByClassName("mySlides");
-    
-    for (i = 0; i < slides.length; i++) {
-       slides[i].style.display = "none";  
-    }
-    slideIndex++;
-    if (slideIndex > slides.length) {slideIndex = 1}    
-    
-    slides[slideIndex-1].style.display = "block";  
-    
-    setTimeout(showSlides, 2000); // Change image every 2 seconds
-}
-</script>
-    </body>
+	<head>
+		<title>Smart Agriculture</title>
+		<meta charset="utf-8" />
+		<meta name="viewport" content="width=device-width, initial-scale=1" />
+		<!--[if lte IE 8]><script src="assets/js/ie/html5shiv.js"></script><![endif]-->
+		<link rel="stylesheet" href="assets/css/main.css" />
+		<!--[if lte IE 8]><link rel="stylesheet" href="assets/css/ie8.css" /><![endif]-->
+	</head>
+	<body>
+
+		<!-- Header -->
+			<section id="header">
+				<header>
+					<h1>Smart Agriculture</h1>
+					<p>Controling Agriculture Even You Are Far</p>
+				</header>
+				<footer>
+					<a href="#banner" class="button style2 scrolly-middle">About The Device And The Controlling System</a>
+				</footer>
+			</section>
+
+		<!-- Banner -->
+			<section id="banner">
+				<header>
+					<h2>Control Of Data</h2>
+				</header>
+				<p>A brand new site template designed by <a href="http://twitter.com/ajlkn">AJ</a> for <a href="http://html5up.net">HTML5 UP</a>.<br />
+				It’s fully responsive, built on <strong>skel</strong>, and of course entirely free<br />
+				under the <a href="http://html5up.net/license">Creative Commons license</a>.</p>
+				<footer>
+					<a href="#first" class="button style2 scrolly">Data Arrived</a>
+				</footer>
+			</section>
+
+		<!-- Feature 1 -->
+			<article id="first" class="container box style1 right">
+				<a href="#" class="image fit"><center><img src="images/1.PNG" alt="" /></center></a>
+				<div class="inner">
+					<header>
+						<h2>Data Arrived</h2>
+					</header>
+					<p>Tortor faucibus ullamcorper nec tempus purus sed penatibus. Lacinia pellentesque eleifend vitae est elit tristique velit tempus etiam.</p>
+				</div>
+			</article>
+
+		<!-- Feature 2 -->
+			<article class="container box style1 left">
+				<a href="graph.html" class="image fit"><img src="images/2.PNG" alt="" /></a>
+				<div class="inner">
+					<header>
+						<h2>Graph Analysis</h2>
+					</header>
+					<p>The Graph representation shows the data reading from the hardware</p>
+				</div>
+			</article>
+
+		<!-- Portfolio -->
+			<!-- <article class="container box style2">
+				<header>
+					<h2>Magnis parturient</h2>
+					<p>Justo phasellus et aenean dignissim<br />
+					placerat cubilia purus lectus.</p>
+				</header>
+				<div class="inner gallery">
+					<div class="row 0%">
+						<div class="3u 12u(mobile)"><a href="images/fulls/01.jpg" class="image fit"><img src="images/thumbs/01.jpg" alt="" title="Ad infinitum" /></a></div>
+						<div class="3u 12u(mobile)"><a href="images/fulls/02.jpg" class="image fit"><img src="images/thumbs/02.jpg" alt="" title="Dressed in Clarity" /></a></div>
+						<div class="3u 12u(mobile)"><a href="images/fulls/03.jpg" class="image fit"><img src="images/thumbs/03.jpg" alt="" title="Raven" /></a></div>
+						<div class="3u 12u(mobile)"><a href="images/fulls/04.jpg" class="image fit"><img src="images/thumbs/04.jpg" alt="" title="I'll have a cup of Disneyland, please" /></a></div>
+					</div>
+					<div class="row 0%">
+						<div class="3u 12u(mobile)"><a href="images/fulls/05.jpg" class="image fit"><img src="images/thumbs/05.jpg" alt="" title="Cherish" /></a></div>
+						<div class="3u 12u(mobile)"><a href="images/fulls/06.jpg" class="image fit"><img src="images/thumbs/06.jpg" alt="" title="Different." /></a></div>
+						<div class="3u 12u(mobile)"><a href="images/fulls/07.jpg" class="image fit"><img src="images/thumbs/07.jpg" alt="" title="History was made here" /></a></div>
+						<div class="3u 12u(mobile)"><a href="images/fulls/08.jpg" class="image fit"><img src="images/thumbs/08.jpg" alt="" title="People come and go and walk away" /></a></div>
+					</div>
+				</div>
+			</article> -->
+
+		<!-- Contact -->
+			<article class="container box style3">
+				<header>
+					<h2>Contact Us</h2>
+					<!-- <p>Diam dignissim lectus eu ornare volutpat orci.</p> -->
+				</header>
+				<form method="post" action="#">
+					<div class="row 50%">
+						<div class="6u 12u$(mobile)"><input type="text" class="text" name="name" placeholder="Name" /></div>
+						<div class="6u$ 12u$(mobile)"><input type="text" class="text" name="email" placeholder="Email" /></div>
+						<div class="12u$">
+							<textarea name="message" placeholder="Message"></textarea>
+						</div>
+						<div class="12u$">
+							<ul class="actions">
+								<li><input type="submit" value="Send Message" /></li>
+							</ul>
+						</div>
+					</div>
+				</form>
+			</article>
+
+		<!-- Generic -->
+		<!--
+			<article class="container box style3">
+				<header>
+					<h2>Generic Box</h2>
+					<p>Just a generic box. Nothing to see here.</p>
+				</header>
+				<section>
+					<header>
+						<h3>Paragraph</h3>
+						<p>This is a subtitle</p>
+					</header>
+					<p>Phasellus nisl nisl, varius id <sup>porttitor sed pellentesque</sup> ac orci. Pellentesque
+					habitant <strong>strong</strong> tristique <b>bold</b> et netus <i>italic</i> malesuada <em>emphasized</em> ac turpis egestas. Morbi
+					leo suscipit ut. Praesent <sub>id turpis vitae</sub> turpis pretium ultricies. Vestibulum sit
+					amet risus elit.</p>
+				</section>
+				<section>
+					<header>
+						<h3>Blockquote</h3>
+					</header>
+					<blockquote>Fringilla nisl. Donec accumsan interdum nisi, quis tincidunt felis sagittis eget.
+					tempus euismod. Vestibulum ante ipsum primis in faucibus.</blockquote>
+				</section>
+				<section>
+					<header>
+						<h3>Divider</h3>
+					</header>
+					<p>Donec consectetur <a href="#">vestibulum dolor et pulvinar</a>. Etiam vel felis enim, at viverra
+					ligula. Ut porttitor sagittis lorem, quis eleifend nisi ornare vel. Praesent nec orci
+					facilisis leo magna. Cras sit amet urna eros, id egestas urna. Quisque aliquam
+					tempus euismod. Vestibulum ante ipsum primis in faucibus orci luctus et ultrices
+					posuere cubilia.</p>
+					<hr />
+					<p>Donec consectetur vestibulum dolor et pulvinar. Etiam vel felis enim, at viverra
+					ligula. Ut porttitor sagittis lorem, quis eleifend nisi ornare vel. Praesent nec orci
+					facilisis leo magna. Cras sit amet urna eros, id egestas urna. Quisque aliquam
+					tempus euismod. Vestibulum ante ipsum primis in faucibus orci luctus et ultrices
+					posuere cubilia.</p>
+				</section>
+				<section>
+					<header>
+						<h3>Unordered List</h3>
+					</header>
+					<ul class="default">
+						<li>Donec consectetur vestibulum dolor et pulvinar. Etiam vel felis enim, at viverra ligula. Ut porttitor sagittis lorem, quis eleifend nisi ornare vel.</li>
+						<li>Donec consectetur vestibulum dolor et pulvinar. Etiam vel felis enim, at viverra ligula. Ut porttitor sagittis lorem, quis eleifend nisi ornare vel.</li>
+						<li>Donec consectetur vestibulum dolor et pulvinar. Etiam vel felis enim, at viverra ligula. Ut porttitor sagittis lorem, quis eleifend nisi ornare vel.</li>
+						<li>Donec consectetur vestibulum dolor et pulvinar. Etiam vel felis enim, at viverra ligula. Ut porttitor sagittis lorem, quis eleifend nisi ornare vel.</li>
+					</ul>
+				</section>
+				<section>
+					<header>
+						<h3>Ordered List</h3>
+					</header>
+					<ol class="default">
+						<li>Donec consectetur vestibulum dolor et pulvinar. Etiam vel felis enim, at viverra ligula. Ut porttitor sagittis lorem, quis eleifend nisi ornare vel.</li>
+						<li>Donec consectetur vestibulum dolor et pulvinar. Etiam vel felis enim, at viverra ligula. Ut porttitor sagittis lorem, quis eleifend nisi ornare vel.</li>
+						<li>Donec consectetur vestibulum dolor et pulvinar. Etiam vel felis enim, at viverra ligula. Ut porttitor sagittis lorem, quis eleifend nisi ornare vel.</li>
+						<li>Donec consectetur vestibulum dolor et pulvinar. Etiam vel felis enim, at viverra ligula. Ut porttitor sagittis lorem, quis eleifend nisi ornare vel.</li>
+					</ol>
+				</section>
+				<section>
+					<header>
+						<h3>Table</h3>
+					</header>
+					<div class="table-wrapper">
+						<table class="default">
+							<thead>
+								<tr>
+									<th>ID</th>
+									<th>Name</th>
+									<th>Description</th>
+									<th>Price</th>
+								</tr>
+							</thead>
+							<tbody>
+								<tr>
+									<td>45815</td>
+									<td>Something</td>
+									<td>Ut porttitor sagittis lorem quis nisi ornare.</td>
+									<td>29.99</td>
+								</tr>
+								<tr>
+									<td>24524</td>
+									<td>Nothing</td>
+									<td>Ut porttitor sagittis lorem quis nisi ornare.</td>
+									<td>19.99</td>
+								</tr>
+								<tr>
+									<td>45815</td>
+									<td>Something</td>
+									<td>Ut porttitor sagittis lorem quis nisi ornare.</td>
+									<td>29.99</td>
+								</tr>
+								<tr>
+									<td>24524</td>
+									<td>Nothing</td>
+									<td>Ut porttitor sagittis lorem quis nisi ornare.</td>
+									<td>19.99</td>
+								</tr>
+							</tbody>
+							<tfoot>
+								<tr>
+									<td colspan="3"></td>
+									<td>100.00</td>
+								</tr>
+							</tfoot>
+						</table>
+					</div>
+				</section>
+				<section>
+					<header>
+						<h3>Form</h3>
+					</header>
+					<form method="post" action="#">
+						<div class="row">
+							<div class="6u">
+								<input class="text" type="text" name="name" id="name" value="" placeholder="John Doe" />
+							</div>
+							<div class="6u">
+								<input class="text" type="text" name="email" id="email" value="" placeholder="johndoe@domain.tld" />
+							</div>
+						</div>
+						<div class="row">
+							<div class="12u">
+								<select name="department" id="department">
+									<option value="">Choose a department</option>
+									<option value="1">Manufacturing</option>
+									<option value="2">Administration</option>
+									<option value="3">Support</option>
+								</select>
+							</div>
+						</div>
+						<div class="row">
+							<div class="12u">
+								<input class="text" type="text" name="subject" id="subject" value="" placeholder="Enter your subject" />
+							</div>
+						</div>
+						<div class="row">
+							<div class="12u">
+								<textarea name="message" id="message" placeholder="Enter your message"></textarea>
+							</div>
+						</div>
+						<div class="row">
+							<div class="12u">
+								<ul class="actions">
+									<li><input type="submit" value="Submit" /></li>
+									<li><input type="reset" class="style3" value="Clear Form" /></li>
+								</ul>
+							</div>
+						</div>
+					</form>
+				</section>
+			</article>
+		-->
+
+		<section id="footer">
+			<ul class="icons">
+				<li><a href="#" class="icon fa-twitter"><span class="label">Twitter</span></a></li>
+				<li><a href="#" class="icon fa-facebook"><span class="label">Facebook</span></a></li>
+				<li><a href="#" class="icon fa-google-plus"><span class="label">Google+</span></a></li>
+				<li><a href="#" class="icon fa-pinterest"><span class="label">Pinterest</span></a></li>
+				<li><a href="#" class="icon fa-dribbble"><span class="label">Dribbble</span></a></li>
+				<li><a href="#" class="icon fa-linkedin"><span class="label">LinkedIn</span></a></li>
+			</ul>
+			<div class="copyright">
+				<ul class="menu">
+					<li>&copy; Untitled. All rights reserved.</li><!-- <li>Design: <a href="http://html5up.net">HTML5 UP</a></li> -->
+				</ul>
+			</div>
+		</section>
+
+		<!-- Scripts -->
+			<script src="assets/js/jquery.min.js"></script>
+			<script src="assets/js/jquery.scrolly.min.js"></script>
+			<script src="assets/js/jquery.poptrox.min.js"></script>
+			<script src="assets/js/skel.min.js"></script>
+			<script src="assets/js/util.js"></script>
+			<!--[if lte IE 8]><script src="assets/js/ie/respond.min.js"></script><![endif]-->
+			<script src="assets/js/main.js"></script>
+
+	</body>
 </html>
